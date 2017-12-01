@@ -47,7 +47,7 @@ end
  
   private
   def candidate_params
-    params.require(:candidate).permit(:name, :party, :age)
+    params.require(:candidate).permit(:name, :party, :age, :comment)
   end
   
   def find_by

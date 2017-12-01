@@ -1,0 +1,14 @@
+  <% if @candidate.errors.any? %>
+    <ul>
+      <% @candidate.errors.full_message.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+<%= form_for @candidate do |f| %>
+  name: <%=f.text_field :name %><br />
+  party: <%=f.text_field :party %><br />
+  age: <%=f.text_field :age %><br />
+  <%= f.submit %>
+<% end %>

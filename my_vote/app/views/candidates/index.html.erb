@@ -1,0 +1,29 @@
+<%= flash[:notice] %>
+<h1>Candidate List</h1>
+ 
+<table class = "table" >
+  <thead>
+    <tr>
+      <td>name</td>
+      <td>party</td>
+      <td>age</td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @candidates.each do |candidate| %>
+      <tr>
+        <td><%= link_to candidate.name, candidate_path(candidate) %></td> 
+        <td><%= candidate.party %></td>
+        <td><%= candidate.age %></td>
+        <td><%= link_to "edit" , edit_candidate_path(candidate) , class: "btn btn-success" %>
+            <%= link_to "delete" , candidate_path(candidate), method: "delete" , data: {confirm: "Are you sure?!"} %>
+            </td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+  </tfoot>
+</table>
+ 
+<%= link_to "add candidate", new_candidate_path , class: "btn btn-danger" %>
